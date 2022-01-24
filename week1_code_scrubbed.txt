@@ -1,0 +1,84 @@
+
+# POSTGRES
+docker run -it \
+  -e POSTGRES_USER="" \
+  -e POSTGRES_PASSWORD="" \
+  -e POSTGRES_DB="ny_taxi" \
+  -v /c/Users/xxx/DataEngZoomCamp/week1/data/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  --network=pg-network \
+  --name pgdatabase \
+  postgres:13
+
+# PGADMIN
+docker run -it \
+  -e PGADMIN_DEFAULT_EMAIL="" \
+  -e PGADMIN_DEFAULT_PASSWORD="" \
+  -p 8080:80 \
+  --network=pg-network \
+  dpage/pgadmin4
+
+# RUN DATA INGESTION SCRIPT
+docker run -it --network=pg-network taxi_ingest:v001 --user= --password= --host=pgdatabase --port=5432 --db=ny_taxi --table_name=yellow_taxi_trips --url='https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv'
+
+# LOAD ZONE DATA 
+# Download manually from site and open python prompt
+# Download manually from site and open python prompt
+import pandas as pd
+df_zones = pd.read_csv('taxi+_zone_lookup.csv')
+from sqlalchemy import create_engine
+engine = create_engine('postgresql://:@localhost:5432/ny_taxi')
+df_zones.to_sql(name='zones', con=engine, if_exists='replace')
+
+HW SOLUTION
+===========
+
+# Question 1: gloud version
+Google Cloud SDK 369.0.0
+
+# Question 2: terraform apply
+google_bigquery_dataset.dataset: Creating...
+google_storage_bucket.data-lake-bucket: Creating...
+google_storage_bucket.data-lake-bucket: Creation complete after 1s [id=dtc_data_lake_nyc-taxi-rides-]
+google_bigquery_dataset.dataset: Creation complete after 1s [id=projects/nyc-taxi-rides-xxxxxx/datasets/trips_data_all]
+
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+
+# Total
+select count(*) from public.yellow_taxi_trips;
+1369765
+
+# Zones total
+select count(*) from public.zones;
+265
+
+# 3 - How many taxi trips were there on January 15?
+select tpep_pickup_datetime::date, count(*) from public.yellow_taxi_trips
+where tpep_pickup_datetime::date ='2021-01-15'
+group by tpep_pickup_datetime::date
+
+# 4 - Day with Largest Tip
+select tpep_pickup_datetime::date, tip_amount from public.yellow_taxi_trips
+where TO_CHAR(tpep_pickup_datetime, 'MM') = '01'
+order by 2 desc
+
+# 5 - Most popular destination
+# Per Query - Answer is 'Manhattan', however this is not one of the solutions
+select zdo."Borough", count(*)
+from public.yellow_taxi_trips tr, public.zones zpu, public.zones zdo
+where 
+tr."PULocationID" = zpu."LocationID" and
+tr."DOLocationID" = zdo."LocationID" and
+tr.tpep_pickup_datetime::date ='2021-01-14' and 
+zpu."Zone" = 'Central Park'
+group by zdo."Borough"
+
+# 6: Most expensive route
+select zpu."Zone", zdo."Zone", avg(tr.fare_amount)
+from public.yellow_taxi_trips tr, public.zones zpu, public.zones zdo
+where 
+tr."PULocationID" = zpu."LocationID" 
+and tr."DOLocationID" = zdo."LocationID" 
+-- and tr.tpep_pickup_datetime::date ='2021-01-14' 
+group by zpu."Zone", zdo."Zone"
+order by 3 desc
