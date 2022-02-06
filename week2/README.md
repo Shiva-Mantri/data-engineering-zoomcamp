@@ -1,7 +1,7 @@
 
 ## Data Loading using Postgres copy_from
-- Using file iteration and data load takes 8mins. 
-- Using copy_from takes 30sec/file.
+- Using file iteration and data load takes **8 mins**. 
+- **Using copy_from takes 30sec/file**.
 - You would need to define dtype for any columns you want to setup in a difference format than what is automatically deduced.
 
 ```Python
