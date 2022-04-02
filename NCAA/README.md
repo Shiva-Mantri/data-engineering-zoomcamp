@@ -20,7 +20,7 @@ College Sports Revenue report - https://datastudio.google.com/reporting/ce47802e
 US Dept of Education's Equity in Athletics Disclosure Act (EADA) - https://ope.ed.gov/athletics/#/customdata/datafiltered
 
 ## Design
-Include diagram
+![Design](NCAA_ProjectFlow.drawio.png)
 
 ## Pipeline
 
