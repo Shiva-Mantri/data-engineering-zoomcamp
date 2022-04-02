@@ -31,7 +31,7 @@ Terraform is used to set up the GCP Storage Bucket and BigQuery
 
 Data (revenue and lookup data) is manually downloaded from data source, due to lack of API. The downloaded data is moved to GCP Cloud Storage Data Lake, using Apache Airflow DAG
 
-*Source*: NCAA/docker/dags
+*Source*: [NCAA/docker/dags](NCAA/docker/dags)
 
 ### Data Warehouse
 *Rubric - 4 points: Tables are partitioned and clustered in a way that makes sense for the upstream queries (with explanation)*
