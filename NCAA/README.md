@@ -1,4 +1,4 @@
-# NCAA March Madness - Game Analytics
+# NCAA and College Sports - Revenue Analytics
 
 ## Project Description
 NCAA and other college atheletic events are enormous events in USA. These events show cases great talent, and attract audience via broadcast and in-person. In proportion, it also attracts considerable revenue in various forms. 
@@ -23,6 +23,8 @@ US Dept of Education's Equity in Athletics Disclosure Act (EADA) - https://ope.e
 ![Design](NCAA_ProjectFlow.drawio.png)
 
 ## Pipeline
+### Set Up
+Terraform is used to set up the GCP Storage Bucket and BigQuery
 
 ### Data Ingestion
 *Rubric - 4 points: End-to-end pipeline: multiple steps in the DAG, uploading data to data lake*
