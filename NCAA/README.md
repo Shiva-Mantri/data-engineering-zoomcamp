@@ -43,7 +43,7 @@ Data in GCS is partitioned based on Year and Clustered based on Sports Conferenc
 
 Using DBT Cloud, data is transformed and summerized - Add all revenue streams, and rolled into Year, College. College names is joined with lookup to get Geo Data.
 
-*Source*: 
+*Source*: https://github.com/Shiva-Mantri/data-engineering-zoomcamp/tree/main/NCAA_DBT
 
 
 ### Dashboard
