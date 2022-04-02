@@ -1,4 +1,4 @@
-# NCAA and College Sports - Revenue Analytics
+# NCAA and College Sports - Revenue
 
 ## Project Description
 NCAA and other college atheletic events are enormous events in USA. These events show cases great talent, and attract audience via broadcast and in-person. In proportion, it also attracts considerable revenue in various forms. 
@@ -14,7 +14,8 @@ Purpose of this project is identify and report amount of sports revenue received
 3. Display in a map, locations of colleges and revenue amounts
 
 ## Final Dashboard
-College Sports Revenue Dashboard - https://datastudio.google.com/reporting/ce47802e-53fc-40ab-9860-0df04ea52c8b
+Final Dashboard - College Sports Revenue<br>
+https://datastudio.google.com/reporting/ce47802e-53fc-40ab-9860-0df04ea52c8b
 
 Sample Screenshot below
 ![Sample Screenshot](Report.jpg)
