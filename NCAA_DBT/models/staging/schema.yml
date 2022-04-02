@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+    - name: staging
+      #For bigquery:
+      database: ncaa-data-eng-zc-2022
+
+      # For postgres:
+      #database: production
+
+      schema: ncaa_datawarehouse_bigquery
+
+      # loaded_at_field: record_loaded_at
+      tables:
+        - name: ncaa20s
+        - name: schools_lookup
+        - name: ncaa_money
+
+models:
+    - name: stg_schools_lookup
+
+    - name: stg_schools_money
+
+    - name: stg_ncaa20s_ranks
+      description: >
+        Rank of teams 
+      columns:
+          - name: year
+            description: Primary key for this table, generated with a concatenation of vendorid+pickup_datetime
+            # tests:
+            #     - unique:
+            #         severity: warn
+            #     - not_null:
+            #         severity: warn
+          - name: seed 
+          - name: team 
