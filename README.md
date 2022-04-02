@@ -13,8 +13,9 @@ Purpose of this project is identify and report amount of sports revenue received
 2. Display a graph of total revenue per year
 3. Display in a map, locations of colleges and revenue amounts
 
-## Final Project Chart
-College Sports Revenue report - https://datastudio.google.com/reporting/ce47802e-53fc-40ab-9860-0df04ea52c8b
+## Final Dashboard
+College Sports Revenue Dashboard - https://datastudio.google.com/reporting/ce47802e-53fc-40ab-9860-0df04ea52c8b
+![Sample Screenshot](Report.jpg)
 
 ### Data Source(s)
 US Dept of Education's Equity in Athletics Disclosure Act (EADA) - https://ope.ed.gov/athletics/#/customdata/datafiltered
