@@ -38,14 +38,14 @@ Data (revenue and lookup data) is manually downloaded from data source, due to l
 
 Data in GCS is partitioned based on Year and Clustered based on Sports Conference. Partitioning based on year helps in getting data for UI reports Year Filter. Clustering by Sports Conference helps in summarizing amounts by conference.
 
-*Source*: NCAA/BigQuery/BigQuery.sql
+*Source*: [NCAA/BigQuery/BigQuery.sql](NCAA/BigQuery/BigQuery.sql)
 
 ### Transformations (dbt)
 *Rubric - 4 points: Tranformations are defined with dbt, Spark or similar technologies*
 
 Using DBT Cloud, data is transformed and summerized - Add all revenue streams, and rolled into Year, College. College names is joined with lookup to get Geo Data.
 
-*Source*: NCAA_DBT/
+*Source*: [NCAA_DBT/](NCAA_DBT)
 
 
 ### Dashboard
