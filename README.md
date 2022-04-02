@@ -7,7 +7,7 @@ Purpose of this project is identify and report amount of sports revenue received
 
 ### Hypothetical Requirement - US Dept of Education wants to analyze sports revenue
 1. Display list of all colleges and their revenue for the last 5 available years
-    1. Include an abilty filter by State, and Year
+    1. Include an ability to filter by State, and Year
     2. Include ability to reset (default feature provided by Google Data Studio)
 
 2. Display a graph of total revenue per year
