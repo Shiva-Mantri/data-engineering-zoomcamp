@@ -1,4 +1,4 @@
-# NCAA and College Sports - Revenue
+# NCAA and College Sports Revenue
 
 ## Project Description
 NCAA and other college atheletic events are enormous events in USA. These events show cases great talent, and attract audience via broadcast and in-person. In proportion, it also attracts considerable revenue in various forms. 
